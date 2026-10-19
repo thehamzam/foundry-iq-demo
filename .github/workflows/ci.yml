@@ -1,0 +1,62 @@
+name: Public CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-validation:
+    name: Offline validation
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Validate declared Python dependency manifest
+        shell: pwsh
+        run: |
+          pwsh -NoProfile -File ./scripts/ci/Test-DependencyManifest.ps1 -SelfTest
+          if ($LASTEXITCODE -ne 0) {
+            throw 'Dependency manifest positive/negative probes failed.'
+          }
+          pwsh -NoProfile -File ./scripts/ci/Test-DependencyManifest.ps1 -ManifestPath ./langgraph-agent-local/requirements.txt
+          if ($LASTEXITCODE -ne 0) {
+            throw 'Declared Python dependency manifest validation failed.'
+          }
+
+      - name: Pin Bicep CLI
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          az bicep install --version v0.47.16
+          if ($LASTEXITCODE -ne 0) {
+            throw 'Bicep CLI installation failed.'
+          }
+          $version = az bicep version 2>&1 | Out-String
+          if ($LASTEXITCODE -ne 0 -or $version -notmatch '\b0\.47\.16\b') {
+            throw "Expected Bicep CLI 0.47.16. Actual output: $version"
+          }
+
+      - name: Restore declared Python dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check --requirement ./langgraph-agent-local/requirements.txt
+          if ($LASTEXITCODE -ne 0) {
+            throw 'Declared Python dependency restore failed.'
+          }
+
+      - name: Run offline public CI
+        shell: pwsh
+        run: pwsh -NoProfile -File ./scripts/ci/Invoke-PublicCI.ps1

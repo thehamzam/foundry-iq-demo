@@ -1,0 +1,8 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "dispute_agent": "./agent.py:graph"
+  },
+  "python_version": "3.12",
+  "env": ".env"
+}

@@ -1,0 +1,39 @@
+name: Feature request
+description: Propose a focused improvement to the public sample
+title: "[Feature]: "
+labels: []
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: User need
+      description: What learning or sample-use problem should be solved?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest coherent change.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Scope and safety boundaries
+      description: Explain effects on synthetic data, Bicep ownership, identity, preview APIs, cost, networking, verification, and cleanup.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Project fit
+      options:
+        - label: The proposal does not require real customer data or institutional policy.
+          required: true
+        - label: The proposal does not add an unguarded deployment or cleanup path.
+          required: true

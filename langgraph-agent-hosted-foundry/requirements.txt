@@ -1,0 +1,28 @@
+# Core Foundry hosted-agent SDK
+azure-ai-agentserver-responses==1.0.0b9
+azure-ai-projects==2.4.0
+azure-identity==1.25.3
+
+# LangGraph / LangChain — LangChain 1.x pre-built agent + LangGraph runtime
+langchain==1.3.15
+langchain-core==1.5.5
+langchain-openai==1.5.1
+langgraph==1.2.11
+langgraph-prebuilt==1.1.0
+
+# Foundry Toolbox integration (hosted Foundry agent retrieval)
+langchain-azure-ai[hosting,tools]==1.2.8
+langchain-mcp-adapters==0.3.2
+mcp==1.29.0
+
+# Model + HTTP
+openai==2.54.0
+httpx==0.28.1
+
+# Utility
+python-dotenv==1.2.2
+pyyaml==6.0.3
+
+# Observability (auto-picked up by Foundry runtime via APPLICATIONINSIGHTS_CONNECTION_STRING)
+azure-monitor-opentelemetry-exporter==1.0.0b56
+opentelemetry-sdk==1.43.0

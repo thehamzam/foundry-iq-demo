@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+requiredVersions:
+  azd: '>=1.27.1'
+
+extensions:
+  azure.ai.agents: '>=1.0.0-beta.9'
+
+name: demofs-dispute-langgraph
+
+services:
+  demofs-dispute-langgraph:
+    host: azure.ai.agent
+    project: .
+    language: python
+    codeConfiguration:
+      runtime: python_3_13
+      entryPoint: main.py
+    kind: hosted
+    name: demofs-dispute-langgraph
+    displayName: DemoFS Dispute Support (LangGraph on Foundry)
+    description: >-
+      LangGraph ReAct agent hosted on Foundry over the Responses protocol.
+      Grounds every response on Foundry IQ / Azure AI Search via a Foundry
+      Toolbox; cites document IDs and snapshot IDs.
+    protocols:
+      - protocol: responses
+        version: 2.0.0
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      TOOLBOX_NAME: ${TOOLBOX_NAME}
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    metadata:
+      tags:
+        - AI Agent Hosting
+        - LangGraph
+        - LangChain
+        - Foundry Toolbox
+        - MCP
+        - Python
+
+infra:
+  provider: microsoft.foundry

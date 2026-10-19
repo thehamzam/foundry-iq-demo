@@ -1,0 +1,124 @@
+# Python bytecode, caches, environments, and build output
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+# Local secrets and environment files
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+!**/.env.template
+
+# Azure CLI, Azure Developer CLI, and deployment state
+.azure/
+**/.azure/
+.azd/
+.tmp-deploy/
+**/.tmp-deploy/
+deployment-output/
+**/deployment-output/
+what-if/
+**/what-if/
+*.whatif
+*.what-if.json
+*.parameters.json
+
+# Generated Bicep, ARM, and data-plane payloads
+*.bicep.json
+*.bicepparam.json
+*.local.bicepparam
+*.arm.json
+infra/main.json
+infra/observability.json
+infra/package-storage-role.json
+infra/package-storage.json
+infra/policy-package-upload-role.json
+infra/resources.json
+infra/storage-network.json
+infra/telemetry-rbac.json
+infra/tenant/frontline-group.json
+infra/tenant/ingestion-fic.json
+infra/tenant/main.json
+infra/out/
+infra/generated/
+infra/custom-search-pipeline.json
+
+# Packaged and generated release artifacts
+*.tar.gz
+*.tgz
+*.7z
+*.whl
+*.nupkg
+
+# Logs, diagnostics, and captured service responses
+*.log
+logs/
+**/logs/
+captures/
+**/captures/
+responses/
+**/responses/
+response-*.json
+*-response.json
+tmp-kb-*.json
+*.trace
+
+# Local tools, editor state, and machine-specific configuration
+.copilot/
+.mcp.json
+.vscode/
+.idea/
+*.code-workspace
+config/
+**/*.local.json
+**/*.local.yaml
+**/*.local.yml
+
+# LangGraph local runtime state
+.langgraph_api/
+**/.langgraph_api/
+.langgraph/
+**/.langgraph/
+langgraph.*.log
+
+# Binary demo media and local recordings
+video-test/
+**/video-test/
+*.avi
+*.mkv
+*.mov
+*.mp4
+*.webm
+
+# Squad internal state and automation
+.squad/
+.squad-workstream
+.github/agents/squad.agent.md
+.github/copilot-instructions.md
+.github/skills/
+.github/workflows/squad-*.yml
+.github/workflows/sync-squad-labels.yml
+
+# Operating-system artifacts
+.DS_Store
+Thumbs.db
+Desktop.ini

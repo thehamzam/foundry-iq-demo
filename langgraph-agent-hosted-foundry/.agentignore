@@ -1,0 +1,20 @@
+# .agentignore — excluded from the code-deploy ZIP that azd uploads to Foundry.
+# Same syntax as .gitignore.
+
+.env
+.env.*
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Old local-agent artifacts (not part of the hosted-agent deploy)
+tools_direct_search.py
+langgraph.json
+Dockerfile
+
+# Dev docs / examples
+*.example
+README-dev.md

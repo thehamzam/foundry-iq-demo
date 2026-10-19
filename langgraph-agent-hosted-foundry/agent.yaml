@@ -1,0 +1,27 @@
+# Foundry hosted-agent manifest for the DemoFS dispute LangGraph agent.
+# Consumed by azd during `azd ai agent init` / `azd up`.
+name: demofs-dispute-langgraph
+displayName: DemoFS Dispute Support (LangGraph on Foundry)
+description: >-
+  LangGraph ReAct agent for card-dispute and fraud triage. Grounds every response
+  on Foundry IQ / Azure AI Search via a Foundry Toolbox; cites document IDs and
+  freshness snapshots on every material claim. Advisory only; no downstream actions.
+
+kind: hosted
+language: python
+codeConfiguration:
+  runtime: python_3_13
+  entryPoint: main.py
+
+protocols:
+  - protocol: responses
+    version: 2.0.0
+
+env:
+  AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+  TOOLBOX_NAME: ${TOOLBOX_NAME}
+
+container:
+  resources:
+    cpu: '1'
+    memory: 2Gi

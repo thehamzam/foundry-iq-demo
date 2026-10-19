@@ -1,0 +1,142 @@
+[
+  {
+    "queryId": "CQ-001",
+    "query": "What three fields form the duplicate correlation key?",
+    "expectedDocumentId": "PROC-CHUNKLAB-101",
+    "relevantSections": [
+      "2. Stable Terms and Record Model"
+    ],
+    "expectedFact": "merchant label + amount + local purchase date"
+  },
+  {
+    "queryId": "CQ-002",
+    "query": "What is the duplicate pair review target?",
+    "expectedDocumentId": "PROC-CHUNKLAB-101",
+    "relevantSections": [
+      "5. Stage Three - Timed Duplicate Pair Review"
+    ],
+    "expectedFact": "18 minutes"
+  },
+  {
+    "queryId": "CQ-003",
+    "query": "Which marker is required for alternate-payment evidence?",
+    "expectedDocumentId": "PROC-CHUNKLAB-101",
+    "relevantSections": [
+      "6. Candidate Evidence Package"
+    ],
+    "expectedFact": "ALT-PAY-ORANGE"
+  },
+  {
+    "queryId": "CQ-004",
+    "query": "When may the merchant-contact wait be skipped?",
+    "expectedDocumentId": "PROC-CHUNKLAB-101",
+    "relevantSections": [
+      "7. General Merchant-Contact Waiting Rule",
+      "8. Boundary Exception - Offline Terminal Code"
+    ],
+    "expectedFact": "The 3-synthetic-business-day wait may be skipped only for exact code LAB-OFFLINE-7."
+  },
+  {
+    "queryId": "CQ-005",
+    "query": "How is a properly allocated split-tender pair handled?",
+    "expectedDocumentId": "PROC-CHUNKLAB-101",
+    "relevantSections": [
+      "9. Split-Tender Review Condition",
+      "10. Boundary Exception - Split Tender Is Not a Duplicate"
+    ],
+    "expectedFact": "It is not a duplicate and routes to LAB-SPLIT-EXCLUDED."
+  },
+  {
+    "queryId": "CQ-006",
+    "query": "What is the final handoff queue for completed non-excluded duplicate drills?",
+    "expectedDocumentId": "PROC-CHUNKLAB-101",
+    "relevantSections": [
+      "15. Final Handoff Queue"
+    ],
+    "expectedFact": "LAB-DUP-REVIEW"
+  },
+  {
+    "queryId": "CQ-007",
+    "query": "At what scores do Amber and Red begin?",
+    "expectedDocumentId": "RUN-CHUNKLAB-202",
+    "relevantSections": [
+      "2. Synthetic Signal Vocabulary"
+    ],
+    "expectedFact": "Tier Amber begins at 41 and Tier Red begins at 73, inclusively."
+  },
+  {
+    "queryId": "CQ-008",
+    "query": "What is the required response order?",
+    "expectedDocumentId": "RUN-CHUNKLAB-202",
+    "relevantSections": [
+      "4. Ordered Response Sequence"
+    ],
+    "expectedFact": "preserve, freeze, verify, escalate"
+  },
+  {
+    "queryId": "CQ-009",
+    "query": "What does SIM-ONLY suppress?",
+    "expectedDocumentId": "RUN-CHUNKLAB-202",
+    "relevantSections": [
+      "7. Step Three - Verify",
+      "8. Boundary Exception - SIM-ONLY Drill Tag"
+    ],
+    "expectedFact": "SIM-ONLY suppresses device mismatch alone as an escalation signal."
+  },
+  {
+    "queryId": "CQ-010",
+    "query": "What is the acknowledgement target after escalation?",
+    "expectedDocumentId": "RUN-CHUNKLAB-202",
+    "relevantSections": [
+      "10. Acknowledgement Deadline"
+    ],
+    "expectedFact": "27 minutes"
+  },
+  {
+    "queryId": "CQ-011",
+    "query": "Which duplicate-intake section is consulted for a combined drill?",
+    "expectedDocumentId": "RUN-CHUNKLAB-202",
+    "relevantSections": [
+      "13. Cross-Reference to Duplicate Intake"
+    ],
+    "expectedFact": "PROC-CHUNKLAB-101 Section 4, Stage Two - Normalize the Candidate Pair."
+  },
+  {
+    "queryId": "CQ-012",
+    "query": "What is the Lane A filing deadline for LAB-NET-12.6.2?",
+    "expectedDocumentId": "COMP-CHUNKLAB-303",
+    "relevantSections": [
+      "4. General Filing Deadline for LAB-NET-12.6.2"
+    ],
+    "expectedFact": "44 synthetic calendar days"
+  },
+  {
+    "queryId": "CQ-013",
+    "query": "What is the Lane A acknowledgement deadline?",
+    "expectedDocumentId": "COMP-CHUNKLAB-303",
+    "relevantSections": [
+      "5. Lane A Acknowledgement"
+    ],
+    "expectedFact": "2 synthetic business days"
+  },
+  {
+    "queryId": "CQ-014",
+    "query": "When does the 61-day sandbox exception apply?",
+    "expectedDocumentId": "COMP-CHUNKLAB-303",
+    "relevantSections": [
+      "7. Lane B Sandbox Entry Condition",
+      "8. Boundary Exception - Lane B Filing Window"
+    ],
+    "expectedFact": "Only Lane B records carrying both SANDBOX-REPLAY and NO-EXTERNAL-ACTION use 61 synthetic calendar days."
+  },
+  {
+    "queryId": "CQ-015",
+    "query": "How long is evidence retained in Lane B versus Lanes A and C?",
+    "expectedDocumentId": "COMP-CHUNKLAB-303",
+    "relevantSections": [
+      "6. Evidence Retention Baseline",
+      "10. Lane B Retention Exception"
+    ],
+    "expectedFact": "Lane B retains evidence for 7 synthetic months; Lanes A and C retain it for 19 synthetic months."
+  }
+]
